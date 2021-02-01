@@ -61,10 +61,12 @@ public class GuestbookController {
 
         service.modify(dto);
 
-        redirectAttributes.addFlashAttribute("page", requestDTO.getPage());
-        redirectAttributes.addFlashAttribute("msg", dto.getGno());
+        redirectAttributes.addAttribute("page", requestDTO.getPage());
+        redirectAttributes.addAttribute("type", requestDTO.getType());
+        redirectAttributes.addAttribute("keyword", requestDTO.getKeyword());
+        redirectAttributes.addAttribute("gno", dto.getGno());
 
-        return "redirect:/guestbook/list";
+        return "redirect:/guestbook/read";
     }
 
     @PostMapping("/remove")
